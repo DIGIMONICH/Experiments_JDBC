@@ -10,6 +10,7 @@ public class Util {
     final static String pass = "4815162342Ww";
     final static String connectionURL = "jdbc:mysql://localhost:3305/public";
 
+
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(connectionURL, userName, pass);
