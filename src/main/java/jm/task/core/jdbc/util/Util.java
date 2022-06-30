@@ -11,9 +11,13 @@ public class Util {
     final static String connectionURL = "jdbc:mysql://localhost:3305/public";
 
 
-    public static Connection getConnection() throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection connection = DriverManager.getConnection(connectionURL, userName, pass);
-        return connection;
+    public static Connection getConnection() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(connectionURL, userName, pass);
+            return connection;
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
